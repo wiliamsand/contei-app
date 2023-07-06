@@ -1,0 +1,6 @@
+<?php
+define(
+    '_SQL_GRAVAR_USUARIO',
+    "INSERT INTO USUARIO(NOME, SOBRENOME, EMAIL, SENHA)
+    VALUES(?, ?, ?, MD5(?))"
+);
