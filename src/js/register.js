@@ -15,7 +15,7 @@ $(document).ready(function () {
         }).done(function (retorno) {
             let resultado = JSON.parse(retorno);
             alert(resultado.msg);
-            window.location.href = '../pages/login.html'
+            window.location.href = '../pages/login.php'
         }).fail(function (retorno) {
             alert(resultado.msg);
         })

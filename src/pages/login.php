@@ -18,6 +18,10 @@
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- js da página -->
+    <script src="../js/login.js"></script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -39,15 +43,12 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem vindo(a)!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" id="form">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="email" aria-describedby="emailHelp"
-                                                placeholder="Insira o endereço de email" required>
+                                            <input type="email" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Insira o endereço de email" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="senha" placeholder="Senha" required>
+                                            <input type="password" name="senha" class="form-control form-control-user" id="senha" placeholder="Senha" required>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

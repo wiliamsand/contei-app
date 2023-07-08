@@ -4,3 +4,10 @@ define(
     "INSERT INTO USUARIO(NOME, SOBRENOME, EMAIL, SENHA)
     VALUES(?, ?, ?, MD5(?))"
 );
+
+define(
+    '_SQL_LOGIN',
+    "SELECT ID, NOME, SOBRENOME, EMAIL
+    FROM USUARIO
+    WHERE EMAIL = ? AND SENHA = MD5(?)"
+);
