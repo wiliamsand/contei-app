@@ -40,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -52,7 +52,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item active" id="link-inicio">
                 <a class="nav-link" href="home.php">
                     <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
                     <i class="fa-solid fa-house"></i>
@@ -81,7 +81,7 @@
                     </div>
                 </div> -->
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="menu-categorias">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa-solid fa-flag"></i>
                     <span>Categorias</span>
@@ -124,7 +124,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed disabled" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span>Gráficos</span>
                 </a>
@@ -166,7 +166,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed disabled" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fa-solid fa-star"></i>
                     <span>Feedback</span>
                 </a>
@@ -257,7 +257,7 @@
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle disabled" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter"></span>
@@ -377,11 +377,11 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item disabled" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item disabled" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configurações
                                 </a>
@@ -403,7 +403,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-principal">
+                <div class="container-principal m-3">
 
                     <!-- Page Heading -->
                     <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -412,7 +412,7 @@
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div> -->
 
-                    <div class="row justify-content-center mb-3">
+                    <div class="row justify-content-center mb-3 ml-4 mr-4">
                         <div class="col-6">
                             <select id="select-mes" class="form-control">
                                 <option value="" disabled selected>Mês</option>
@@ -761,12 +761,13 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <div class="container-contas">
+                <!-- CONTAINER CONTAS  -->
+                <div class="container-contas" style="display: none;">
                     <h1 class="text-center">Gerenciar contas</h1>
                     <div class="col-12">
                         <form class="user" id="form-conta">
                             <div class="form-group">
-                                <input type="text" name="nome" class="form-control form-control-user" id="nome-conta" aria-describedby="emailHelp" placeholder="Nomeie a nova conta" required>
+                                <input type="text" name="nome" class="form-control form-control-user" id="nome-conta" placeholder="Nomeie a nova conta" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" name="saldo-inicial" class="form-control form-control-user" id="saldo-inicial" placeholder="Saldo inicial" required>
@@ -774,23 +775,64 @@
                             <button type="submit" class="btn btn-primary btn-user btn-block"> Cadastrar </button>
                         </form>
                     </div>
+                    <h3 class="text-center mt-3">Listar as contas e seus saldos</h2>
                 </div>
+                <!-- FIM CONTAINER CONTAS  -->
 
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                <!-- CONTAINER CATEGORIAS  -->
+                <div class="container-categorias" style="display: none;">
+                    <h1 class="text-center">Gerenciar categorias</h1>
+                    <ul class="nav nav-pills nav-fill user m-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" data-toggle="pill" href="#tab-receitas">Receitas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#tab-despesas">Despesas</a>
+                        </li>
+                    </ul>
+                    <div class="col-12 mt-3">
+                        <form class="user" id="form-categoria">
+                            <div class="form-group">
+                                <input type="text" name="nome" class="form-control form-control-user" id="nome-conta" placeholder="Nomeie a nova categoria" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Cadastrar</button>
+                        </form>
+                    </div>
+                    <div class="tab-content mt-3">
+                        <div class="tab-pane fade show active" id="tab-receitas">
+                            <h3 class="text-center">Listar as categorias de receitas</h3>
+                        </div>
+                        <div class="tab-pane fade" id="tab-despesas">
+                            <h3 class="text-center">Listar as categorias de despesas</h3>
+                        </div>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
+                <!-- <div class="pill-content">
+                        <div class="tab-pane show active" id="tab-receitas" role="tabpanel">
+                            <h3 class="text-center mt-3">Listar as categorias de receitas</h3>
+                        </div>
+                        <div class="tab-pane" id="tab-despesas" role="tabpanel">
+                            <h3 class="text-center mt-3">Listar as categorias de despesas</h3>
+                        </div>
+                    </div> -->
+
+            <!-- FIM CONTAINER CATEGORIAS  -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Contei App 2023 - Desenvolvido por Wiliam Sand </span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -805,15 +847,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Realmente deseja sair?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Selecione "Sair" abaixo se estiver pronto para encerrar sua sessão atual.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="login.php">Sair</a>
                 </div>
             </div>
         </div>

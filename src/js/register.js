@@ -13,11 +13,11 @@ $(document).ready(function () {
             processData: false,
             contentType: false
         }).done(function (retorno) {
-            let resultado = JSON.parse(retorno);
+            let resultado = JSON.parse(retorno)
             alert(resultado.msg);
             window.location.href = '../pages/login.php'
         }).fail(function (retorno) {
-            alert(resultado.msg);
+            alert(resultado.msg)
         })
     }
 

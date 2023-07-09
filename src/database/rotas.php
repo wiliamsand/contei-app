@@ -13,6 +13,16 @@ if (isset($_POST['rota'])) {
             login($conn);
             break;
 
+            //CADASTRAR CONTA
+        case 'gravar_conta':
+            gravarConta($conn);
+            break;
+
+            //CADASTRAR CATEGORIA
+        case 'gravar_categoria':
+            gravarCategoria($conn);
+            break;
+
             //DEFAULT ROTA NÃO ENCONTRADA
         default:
             echo json_encode(['erro' => 1, 'msg' => 'Rota não encontrada!']);
