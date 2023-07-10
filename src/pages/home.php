@@ -29,6 +29,10 @@
     <script src="../../funcoes.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js" integrity="sha512-oJCa6FS2+zO3EitUSj+xeiEN9UTr+AjqlBZO58OPadb2RfqwxHpjTU8ckIC8F4nKvom7iru2s8Jwdo+Z8zm0Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -373,7 +377,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <!-- <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span> -->
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -421,7 +425,7 @@
                                 <option value="3">Março</option>
                                 <option value="4">Abril</option>
                                 <option value="5">Maio</option>
-                                <option value="6" selected>Junho</option>
+                                <option value="6">Junho</option>
                                 <option value="7">Julho</option>
                                 <option value="8">Agosto</option>
                                 <option value="9">Setembro</option>
@@ -435,7 +439,7 @@
                                 <option value="" disabled selected>Ano</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
-                                <option value="2023" selected>2023</option>
+                                <option value="2023">2023</option>
                                 <option value="2024">2024</option>
                                 <!-- Adicione os anos desejados -->
                             </select>
@@ -443,7 +447,7 @@
                     </div>
 
                     <div class="row justify-content-center mb-3">
-                        <button class="btn btn-success btn-circle">
+                        <button class="btn btn-primary btn-circle" data-toggle="modal" data-target="#myModal">
                             <i class="fa-solid fa-plus fa-2xl"></i>
                         </button>
                     </div>
@@ -459,7 +463,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Saldo em contas</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$4000,00</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card-saldo-contas">R$0,00</div>
                                         </div>
                                         <div class="col-auto">
                                             <!-- <i class="fas fa-calendar fa-2x text-gray-300"></i> -->
@@ -477,7 +481,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Receitas</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$4000,00</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card-receitas">R$0,00</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-arrow-up fa-2xl" style="color: #15ff00;"></i>
@@ -497,7 +501,7 @@
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">R$0,00</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="card-despesas">R$0,00</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -517,7 +521,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                                                 Balanço</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">R$4000,00</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="card-balanco">R$0,00</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-square-poll-vertical fa-2xl" style="color: #000000;"></i>
@@ -816,23 +820,23 @@
                         </div>
                     </div> -->
 
-            <!-- FIM CONTAINER CATEGORIAS  -->
+                <!-- FIM CONTAINER CATEGORIAS  -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Contei App 2023 - Desenvolvido por Wiliam Sand </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Contei App 2023 - Desenvolvido por Wiliam Sand </span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -860,6 +864,84 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL PARA LANÇAR TRANSAÇÃO  -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Adicionar Registro</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills nav-fill user m-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" data-toggle="pill" href="#tab-lancar-receitas">Receitas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#tab-lancar-despesas">Despesas</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content mt-3">
+                        <div class="tab-pane fade show active" id="tab-lancar-receitas">
+                            <form class="user" id="form-lancar-receita">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" placeholder="Valor" id="valor-receita" name="valor" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control form-control-user" id="data-receita" name="data" required value="<?php echo date('Y-m-d'); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" placeholder="Descrição" id="descricao-receita" name="descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="categoria-receita" name="categoria" required>
+                                        <option value="" disabled selected>Categoria</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="conta-receita" name="conta" required>
+                                        <option value="" disabled selected>Conta</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Salvar</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab-lancar-despesas">
+                            <form class="user" id="form-lancar-despesa">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" placeholder="Valor" id="valor-despesa" name="valor" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control form-control-user" id="data-despesa" name="data" required value="<?php echo date('Y-m-d'); ?>">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" placeholder="Descrição" id="descricao-despesa" name="descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="categoria-despesa" name="categoria" required>
+                                        <option value="" disabled selected>Categoria</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="conta-despesa" name="conta" required>
+                                        <option value="" disabled selected>Conta</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Salvar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                </div> -->
+            </div>
+        </div>
+    </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>

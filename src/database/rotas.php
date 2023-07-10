@@ -23,6 +23,26 @@ if (isset($_POST['rota'])) {
             gravarCategoria($conn);
             break;
 
+            //CARREGAR CATEGORIAS
+        case 'carregar_categorias':
+            carregarCategorias($conn);
+            break;
+
+            //CARREGAR CONTAS
+        case 'carregar_contas':
+            carregarContas($conn);
+            break;
+
+            //GRAVAR LANÇAMENTO
+        case 'gravar_lancamento':
+            gravarLancamento($conn);
+            break;
+
+            //CARREGA CARDS BALANCO
+        case 'carregar_cards_balanco':
+            carregaCardsBalanco($conn);
+            break;
+
             //DEFAULT ROTA NÃO ENCONTRADA
         default:
             echo json_encode(['erro' => 1, 'msg' => 'Rota não encontrada!']);
