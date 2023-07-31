@@ -1,4 +1,25 @@
 $(document).ready(function () {
+    //LOGIN COM O GOOGLE
+    function handleCredentialResponse(response) {
+        const data = jwt_decode(response.credential)
+        console.log(data);
+    }
+    window.onload = function () {
+        google.accounts.id.initialize({
+            client_id: "871846604959-sur510g3olplfkk4et0l7dc2ka0m3mrr.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { 
+                theme: "outline", 
+                size: "large",
+                shape: "pill" 
+            }  // customization attributes
+        );
+        google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+
     // REFERÊNCIAS
     const form = $('#form')
 

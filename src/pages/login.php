@@ -22,6 +22,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <!-- js da página -->
     <script src="../js/login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -61,9 +63,12 @@
                                         </a> -->
                                         <button type="submit" class="btn btn-primary btn-user btn-block"> Login </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block disabled">
+                                        <!-- <a class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login com o Google
-                                        </a>
+                                        </a> -->
+                                        <div class="container d-flex justify-content-center align-items-center">
+                                            <div id="buttonDiv" class="text-center"></div>
+                                        </div>
                                         <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> -->
