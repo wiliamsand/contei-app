@@ -6,7 +6,7 @@ $(document).ready(function () {
     }
     window.onload = function () {
         google.accounts.id.initialize({
-            client_id: "871846604959-sur510g3olplfkk4et0l7dc2ka0m3mrr.apps.googleusercontent.com",
+            client_id: "SEU_CLIENTID",
             callback: handleCredentialResponse
         });
         google.accounts.id.renderButton(
